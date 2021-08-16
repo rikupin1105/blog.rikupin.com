@@ -34,7 +34,6 @@ params:
         lastUpdated: Jan 02, 2006 15:04 MST
 
     sidebar:
-        emoji: ❤️
         subtitle: りくぴんのメモブログです。自分用のメモついでにアウトプットしています。
         avatar:
             enabled: true
@@ -43,11 +42,8 @@ params:
 
     article:
         math: false
-        toc: true
+        toc: false
         readingTime: false
-        license:
-            enabled: false
-            default: Licensed under CC BY-NC-SA 4.0
 
     comments:
         enabled: false       
