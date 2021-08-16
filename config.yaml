@@ -1,5 +1,5 @@
 baseurl: https://example.com
-languageCode: ja-ja
+languageCode: ja-jp
 theme: hugo-theme-stack
 paginate: 10
 title: りくぴんのメモ
