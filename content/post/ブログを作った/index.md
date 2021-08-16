@@ -15,6 +15,7 @@ tags : [
 ホスティングは Azure static web apps を使用していて、  
 Hugo Theme は [Hugo-Theme-Stack](https://github.com/CaiJimmy/hugo-theme-stack) を使用しています。
 
+この投稿より前にある記事は、はてなブログにあったものを引っ張ってきました。  
 当サイトのソースコードは [Github](https://github.com/rikupin1105/blog.rikupin.com) に上げてあります。
 
 ## ~~少し~~詰まったところ
