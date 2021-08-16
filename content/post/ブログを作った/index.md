@@ -12,8 +12,8 @@ tags : [
 ## ブログを作りました
 アウトプットをする場所を作ろうと思い、Hugoを使用してブログを作りました。
 
-ホスティングは Azure static web apps を使用していて、  
-Hugo Theme は [Hugo-Theme-Stack](https://github.com/CaiJimmy/hugo-theme-stack) を使用しています。
+ホスティングは [Azure Static Web Apps](https://azure.microsoft.com/ja-jp/services/app-service/static/) を使用していて、  
+CI/CD に GitHub Actions、Hugo Theme は [Hugo-Theme-Stack](https://github.com/CaiJimmy/hugo-theme-stack) を使用しています。
 
 当サイトのソースコードは [Github](https://github.com/rikupin1105/blog.rikupin.com) に上げてあります。
 
