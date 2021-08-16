@@ -1,4 +1,4 @@
-baseurl: blog.rikupin.com
+baseurl: https://blog.rikupin.com/
 languageCode: ja-jp
 theme: hugo-theme-stack
 paginate: 10
