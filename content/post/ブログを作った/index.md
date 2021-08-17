@@ -17,5 +17,16 @@ CI/CD に [GitHub Actions](https://github.co.jp/features/actions)、Hugo Theme �
 
 ## ~~少し~~詰まったところ
 テーマのフォントが中華フォントだったため、日本語フォントに変えようと思ったが、どこに設定項目があるのか分かりづらかったが、  
-[themes/hugo-theme-stack/assets/scss/variables.scss](https://github.com/CaiJimmy/hugo-theme-stack/blob/master/assets/scss/variables.scss)  
-を編集することで可能でした。(56行あたり)
+themes/hugo-theme-stack/layout/partials/head/custom.html
+を
+```
+<style>
+    :root {
+        --sys-font-family: "Noto Sans", sans-serif;
+        --zh-font-family: "Noto Sans", sans-serif;
+        --base-font-family: "Noto Sans", sans-serif;
+        --code-font-family: "Noto Sans", sans-serif;
+    }
+</style>
+```
+このようにすることで変更ができました。
