@@ -3,6 +3,6 @@ title: "Technology"
 description: "技術関連について書いています。"
 slug: "technology"
 style:
-    background: "#2a9d8f"
+    background: "#0177B8"
     color: "#fff"
 ---
