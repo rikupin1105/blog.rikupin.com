@@ -1,12 +1,12 @@
 ---
-title : "Azure Functions で LineBot を作る"
-date : 2021-08-18
+title : "Azure Functionsでオウム返しをするLineBotを作る"
+date : 2021-08-17
 categories : [
     "Technology"
 ]
 tags : [
     "Csharp",
-    "Azure"
+    "Line"
 ]
 ---
 
@@ -18,8 +18,8 @@ Visual Studio を起動し、新しいプロジェクトから Azure Functions �
 ![](1.jpg)
 
 ## ライブラリのインストール
-Visual Studio 画面上部にある プロジェクト から Nugetパッケージの管理を開く。  
-参照から line-bot-sdk-csharp と検索し最新版をインストールする。
+Visual Studio 画面上部にある プロジェクト から Nugetパッケージの管理を開きます。  
+参照から [line-bot-sdk-csharp](https://github.com/rikupin1105/line-bot-sdk-csharp) と検索し最新版をインストールします。
 ~~私が勝手に引き継いで機能を追加しているライブラリです。Issue PR大歓迎です。~~
 
 ## コードを書くよ
@@ -58,7 +58,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
 }
 ```
 
-LineBotApp() の部分が赤線になると思いますが、気にせず次に進んでください。
+LineBotApp(); の部分が赤線になると思いますが、気にせず次に進んでください。
 
 ソリューションエクスプローラーの FunctionApp1(名前が違う可能性もあります) を右クリックして >追加 >クラス を選択します。  
 名前を LineBotApp にし、追加します。
@@ -69,7 +69,7 @@ using LineMessagingAPI;
 using LineMessagingAPI.Webhooks;
 ```
 
-namespace内を削除し、以下のコードを追加します。
+そして以下のコードも追加します。
 こちらも[GitHub](https://github.com/rikupin1105/line-bot-sdk-csharp/blob/main/sample/FunctionAppSample/LineBotApp.cs)にサンプルコードを上げています。
 
 ```cs
@@ -110,26 +110,29 @@ class LineBotApp : WebhookApplication
 
 ## LINE側の設定
 [Line Developers](https://developers.line.biz/ja/) にアクセスしコンソールに移動します。  
-ログインを求められるので LINEアカウント または ビジネスアカウントでログインして下さい。  
+ログインを求められるので LINEアカウント または ビジネスアカウントでログインしてください。  
 
-はじめの画面ではプロパイダーを作成します。名前は何でもいいです。
+はじめの画面ではプロパイダーを作成します。名前は何でもOKです。  
+すでに作成済みのかたはそちらを使用していただいて構いません。
 
-チャネル設定で Messaging API を選択します。  
+チャネル設定で Messaging API を選択します。
+すでに使ったことのあるからは新規チャネル作成を選択し Messaging API を選択します。
 
 チャネル名や業種を入力する欄があるので、当てはまるものを選択して、作成します。
 
 ## シークレットの設定
 
-Visual Studio のソリューションにある local.setting.json を開き Values 内に以下のコードを追加します。
+Visual Studio のソリューションエクスプローラーにある local.setting.json を開き Values 内に以下のコードを追加します。
 
 ```
 "CHANNEL_ACCESS_TOKEN": "",
 "CHANNEL_SEACRET": "",
 ```
-CHANNEL_ACCESS_TOKEN の 右側の "" の中に、チャンネルアクセストークンを入力します。("" は消さないこと)  
-チャンネルアクセストークンは Line Developers の Messaging API設定の一番したにチャンネルアクセストークンの欄があるので発行をし、コピペします。  
+CHANNEL_ACCESS_TOKEN の 右側の "" の中に、チャネルアクセストークンを入力します。("" は消さないこと)  
+チャネルアクセストークンは Line Developers の Messaging API設定の一番下にチャネルアクセストークンの欄があるので発行をし、コピペします。  
 CHANNEL_SEACRET も同じように入力します。
 Line Developrs のチャネル基本設定の下の方にあります。  
+
 下記のような感じになるはずです。  
 ![](2.jpg)
 
@@ -140,7 +143,7 @@ Line Developrs の Messaging API設定 を開き、表示されているQRコー
 ...  
 当然オウム返しはしてくれません。
 サーバーの設定などが必要になってくるためです。  
-Azure にデプロイしても良いのですが、今回は ngrok を使ってみましょう。
+Azure にデプロイしても良いのですが、今回は開発時に便利な ngrok を使ってみましょう。
 
 ## ngrokの設定
 [ngrok](https://ngrok.com/download) のサイトから ngrok をダウンロードします。  
@@ -157,16 +160,16 @@ Function: [POST] http://localhost:7071/api/Function
 
 
 ターミナルもしくはCMDやパワーシェルを開き、以下のコマンドを実行します。  
-上手く行かない場合は、ngrokのディレクトリに居ないか、パスが通ってない、などが考えられます。  
-ngrok.exe がある場所まで移動しコマンドを実行してください。
+うまく行かない場合は、ngrokのディレクトリに居ないか、パスが通ってない、などが考えられます。  
+パスを確認するか、ngrok.exe がある場所まで移動しコマンドを実行してください。
 ```
 ngrok http 7071
 ```
 
-ちなみにこのコマンドの 7071 はポート番号を示しており、プログラムを実行したときに localhost:〇〇〇〇 の部分を入力します。  
+ちなみにこのコマンドの 7071 はポート番号を示しており、プログラムを実行したときに localhost:〇〇〇〇 の部分と同じです。   
 環境によっては違う番号が表示される場合があるのでそちらに合わせてください。
 
-上手く実行できると、ターミナル内のどこかに、下記のような表示がでてくるので下の https の方の URL をコピーします。
+うまく実行できると、ターミナル内のどこかに、下記のような表示がでてくるので下の https の方の URL をコピーします。
 ```
 Forwarding  http://*************.ngrok.io -> http://localhost:7071
 Forwarding  https://://*************..ngrok.io -> http://localhost:7071    
@@ -182,3 +185,7 @@ WebHookの利用をオンにして検証をしてみましょう。
 
 LINEを開いてなにかメッセージを送ってみましょう。  
 送ったことを同じ文章が返ってくれば成功です。
+
+### おわりに
+最後まで読んでいただきありがとうございました。  
+次回は せっかくだからAzureにデプロイしよう を予定しています。
