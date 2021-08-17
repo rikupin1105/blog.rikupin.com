@@ -1,6 +1,7 @@
 ---
-title : "Azure Functionsでオウム返しをするLineBotを作る"
-date : 2021-08-17
+title : "Azure FunctionsとC#でオウム返しをするLineBotを作る"
+slug : "AzureFunctionsとCsharpでオウム返しをするLineBotを作る"
+date : 2021-08-18T02:30:00+09:00
 categories : [
     "Technology"
 ]
