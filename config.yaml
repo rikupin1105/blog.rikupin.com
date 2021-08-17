@@ -3,6 +3,7 @@ languageCode: ja-jp
 theme: hugo-theme-stack
 paginate: 10
 title: りくぴんのメモ
+enableGitInfo : true
 
 # Change it to your Disqus shortname before using
 disqusShortname: hugo-theme-stack
@@ -30,8 +31,8 @@ params:
         customText:
 
     dateFormat:
-        published: Jan 02, 2006
-        lastUpdated: Jan 02, 2006 15:04 MST
+        published: 2006/01/02
+        lastUpdated: 2006/01/02, 15:04
 
     sidebar:
         subtitle: りくぴんのメモブログです。自分用のメモついでにアウトプットしています。
