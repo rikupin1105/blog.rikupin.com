@@ -1,7 +1,7 @@
 ---
 title: "Diary"
 description: ""
-slug: "Diary"
+slug: "diary"
 style:
     background: "#8EA885"
     color: "#fff"
