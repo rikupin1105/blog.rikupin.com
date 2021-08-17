@@ -1,12 +1,6 @@
 ---
 title : "ブログを作った"
 date : 2021-08-16
-categories : [
-    "Technology"
-]
-tags : [
-    "Azure"
-]
 ---
 
 ## ブログを作りました
