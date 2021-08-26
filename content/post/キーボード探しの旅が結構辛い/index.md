@@ -4,7 +4,7 @@ date : 2021-08-26T23:40:00+09:00
 categories : [
     "Diary","Technology"
 ]
-tag:[
+tag : [
     "キーボード"
 ]
 ---
