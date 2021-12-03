@@ -1,5 +1,5 @@
 ---
-title: "私が考えるProとAppple"
+title: "私が考えるProとApple"
 date: 2021-09-23T01:09:00+09:00
 categories: ["Diary", "Technology"]
 tags: []
