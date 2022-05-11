@@ -1,6 +1,6 @@
 ---
 title: "ありがとう東プレ、ありがとうRealForce"
-date: 2022-5-11T10:35:00+09:00
+date: 2022-05-11T10:35:00+09:00
 slug: "20"
 categories: ["dialy", "Technology"]
 tags: ["キーボード"]
